@@ -1,18 +1,114 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Zenithra Tech - Secure Portal</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <div class="terminal-container">
-      <h1 class="glitch" data-text="ZENITHRA TECH">ZENITHRA TECH</h1>
-      <p class="status">System Online. Awaiting Authorization...</p>
-    </div>
-    <canvas id="quest-init" width="600" height="120"></canvas>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ZENITHRA TECH — Hardware Interface</title>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@300;500;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
 
-    <script src="./script.js"></script>
-  </body>
+  <!-- Boot splash -->
+  <div class="boot-overlay">
+    <div class="boot-logo">ZENITHRA</div>
+    <div class="boot-bar-wrap"><div class="boot-bar"></div></div>
+    <div class="boot-text">INITIALIZING HARDWARE INTERFACE...</div>
+  </div>
+
+  <!-- Header -->
+  <header>
+    <div class="logo">
+      <div class="logo-main">ZENITHRA TECH</div>
+      <div class="logo-sub">HARDWARE INTERFACE — VAULT ACCESS TERMINAL</div>
+    </div>
+    <div class="header-right">
+      <div class="status-chip"><div class="dot"></div> SYSTEM ONLINE</div>
+      <div class="sys-time" id="clock">--:--:--</div>
+    </div>
+  </header>
+
+  <!-- Main grid -->
+  <main>
+
+    <!-- VIDEO PANEL -->
+    <div class="panel" id="videoPanel">
+      <div class="panel-header">
+        <div class="panel-title">
+          <span class="panel-icon">📷</span>
+          <span class="panel-name">Video Feed</span>
+        </div>
+        <span class="panel-tag" id="videoTag">OFFLINE</span>
+      </div>
+      <div class="video-wrap">
+        <video id="videoEl" autoplay playsinline muted></video>
+        <div class="video-placeholder" id="videoPlaceholder">
+          <div class="video-placeholder-icon">◎</div>
+          <div>AWAITING FEED</div>
+        </div>
+        <div class="video-overlay" id="videoOverlay"></div>
+        <div class="crosshair tl" id="ch1"></div>
+        <div class="crosshair tr" id="ch2"></div>
+        <div class="crosshair bl" id="ch3"></div>
+        <div class="crosshair br" id="ch4"></div>
+        <div class="rec-badge" id="recBadge"><div class="rec-dot"></div> REC</div>
+      </div>
+      <div class="btn-row">
+        <button class="btn" id="startCam">▶ Start Camera</button>
+        <button class="btn danger" id="stopCam" style="display:none">■ Stop</button>
+      </div>
+    </div>
+
+    <!-- VOICE PANEL -->
+    <div class="panel" id="voicePanel">
+      <div class="panel-header">
+        <div class="panel-title">
+          <span class="panel-icon">🎤</span>
+          <span class="panel-name">Voice Transcription</span>
+        </div>
+        <span class="panel-tag" id="voiceTag">IDLE</span>
+      </div>
+      <div class="waveform" id="waveform"></div>
+      <div class="transcript-box" id="transcriptBox">
+        <span class="transcript-empty" id="transcriptEmpty">// Awaiting voice input...</span>
+      </div>
+      <div class="btn-row">
+        <button class="btn" id="startVoice">▶ Start Listening</button>
+        <button class="btn danger" id="stopVoice" style="display:none">■ Stop</button>
+        <button class="btn amber" id="clearVoice">⌫ Clear</button>
+      </div>
+      <div id="voiceUnsupported" class="unsupported" style="display:none">
+        ⚠ Web Speech API not supported in this browser. Try Chrome or Edge.
+      </div>
+    </div>
+
+    <!-- BLUETOOTH PANEL -->
+    <div class="panel" id="btPanel">
+      <div class="panel-header">
+        <div class="panel-title">
+          <span class="panel-icon">🦷</span>
+          <span class="panel-name">Bluetooth</span>
+        </div>
+        <span class="panel-tag" id="btTag">INACTIVE</span>
+      </div>
+      <div class="bt-status-bar">
+        <span class="bt-icon">⬡</span>
+        <span id="btStatusText">No device connected. Press scan to begin.</span>
+      </div>
+      <div class="device-list" id="deviceList"></div>
+      <div class="btn-row">
+        <button class="btn" id="scanBt">⬡ Scan for Devices</button>
+      </div>
+      <div id="btUnsupported" class="unsupported" style="display:none">
+        ⚠ Web Bluetooth API not supported. Try Chrome on desktop (HTTPS required).
+      </div>
+    </div>
+
+    <!-- SYSTEM LOG -->
+    <div class="sys-log" id="sysLog"></div>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
 </html>
